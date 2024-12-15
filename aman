@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Әскери Комунизмнен Жаңа Экономикалық Саясатқа Көшу</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .slide {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .slide img {
+            width: 80%;
+            margin-top: 20px;
+        }
+        .text {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .video-container {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 50%;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide" id="slide1">
+        <div class="text">Әскери Комунизм кезеңі</div>
+        <img src="image1.jpg" alt="Әскери Комунизм">
+    </div>
+
+    <div class="slide" id="slide2">
+        <div class="text">Жаңа Экономикалық Саясатқа Көшу</div>
+        <img src="image2.jpg" alt="Жаңа Экономикалық Саясат">
+    </div>
+
+    <div class="slide" id="slide3">
+        <div class="text">Тарихи маңызы мен әсері</div>
+        <div class="video-container">
+            <video width="100%" height="100%" controls>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <button class="button" onclick="nextSlide()">Келесі слайд</button>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = (i === index) ? 'block' : 'none';
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Инициализация первого слайда
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
